@@ -26,4 +26,5 @@ binary cross entropy (log loss).
 - this step is common and same as it is done in the linear regression. 
 
 4) example image of the logistic regression
-![photo](../images/example_image_logistic_reg.png)
+<!-- fixed path: use the actual filename in ../images/ -->
+![photo](../images/example_image_logisitic_reg.png)
