@@ -24,3 +24,6 @@ binary cross entropy (log loss).
            
 3) now comes the optimization step.
 - this step is common and same as it is done in the linear regression. 
+
+4) example image of the logistic regression
+![image](example_img.png)
