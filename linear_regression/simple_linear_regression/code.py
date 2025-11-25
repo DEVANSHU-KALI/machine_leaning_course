@@ -1,3 +1,4 @@
+#NOTE:this code is implemented using the batch gradient desent algorithm.
 import numpy as np
 import matplotlib.pyplot as plt
 
