@@ -1,6 +1,15 @@
-The first thing, **what is this gradient descent actually**: *It's an iterative optimization algorithm which is used to train the machine learning models to adjust the parameters and minimize the loss function.*
-
-## How actually its done in, lets get the core idea:
+# What is it 
+- *It's an iterative optimization algorithm which is used to train the machine learning models to adjust the parameters and minimize the loss function.*
+- you can also say it like, its a **first order** optimization algorithm to adjust the parameters to get the minimum loss.
+	- you'll later know why i used the term first order there.
+# How it optimizes the loss !!
+- mainly there are three types of this, and three of them work differently.
+- it intially computes the gradients and later updates them eventually. it stop until it reaches a stopping condition which are maximum iteration, convergence or lack of imporovements etc.
+## Types of gradient descent:
+- stochastic:
+- batch:
+- mini batch: 
+### example, how this works in the code: 
 - you start with random parameters (e.g, slope m, intercept c) and at the end you should find the values which minimize the loss.
 - at each step:
 	- you compute the gradients (i.e, slope and loss function).
