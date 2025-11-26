@@ -1,0 +1,2 @@
+- similar to the simple linar regression, we do that whole process here too, but this model models relationship between one dependent variable and two or more independent variables. so that we can use multiple feature in the model to predict the output.
+- 

@@ -9,7 +9,7 @@
 - stochastic:
 - batch:
 - mini batch: 
-### example, how this works in the code: 
+### How this works in the code:, NOte: this process used batch gradient descent. and this is just for example.
 - you start with random parameters (e.g, slope m, intercept c) and at the end you should find the values which minimize the loss.
 - at each step:
 	- you compute the gradients (i.e, slope and loss function).
