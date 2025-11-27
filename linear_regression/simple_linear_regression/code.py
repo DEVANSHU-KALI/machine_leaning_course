@@ -11,6 +11,7 @@ m, c = 0, 0
 
 n = float(len(X))
 
+# Gradient Descent Algorithm working starts here ----------------
 for i in range(iterations):
     Y_pred = m * X + c
 
@@ -21,6 +22,7 @@ for i in range(iterations):
     #updating the gradients
     m = m - learning_rate * m_gradient
     c = c - learning_rate * c_gradient
+#------------ends here-------------------------------------------
 
 # Final parameters
 print(f"\nFinal parameters: m = {m:.4f}, c = {c:.4f}")

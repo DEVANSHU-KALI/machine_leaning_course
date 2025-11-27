@@ -3,6 +3,8 @@ Note: I hope you came here after reading about the linear regression.
 - simple linear regression only models **relationship between 1 dependent variable and 1 independent variable**.
 - **Formula** for this model is: y_pred=m*x+c
 - where the m and c are explained in the ___"All_about_linear_regression.md"___ page
+- as explained that page, the next step would be the optimization step and you can see that clearly happening in the code.
+- for more info about the otpimation step visit the ___gradient descent page from the optimizer folder___, there the process explained also works for this algorithm, i also mentiond this model and took this as example to explain that optimzer.
 
 
 
