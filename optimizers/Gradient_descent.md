@@ -6,8 +6,8 @@
 - mainly there are three types of this, and three of them work differently.
 - it intially computes the gradients and later updates them eventually. it stop until it reaches a stopping condition which are maximum iteration, convergence or lack of imporovements etc.
 ## Types of gradient descent:
-- stochastic:
-- batch:
+- stochastic: takes only single sample at a time to calculate the gradients.
+- batch: uses the whole dataset to calculate the gradients.
 - mini batch: 
 ### How this works in the code:, Note: the below process was done using the batch gradient descent. and this is just for example.
 - you start with random parameters (e.g, slope m, intercept c) and at the end you should find the values which minimize the loss.
@@ -26,3 +26,4 @@
 	- now updating the gradients: we have the formula for that where we need learning rate to tell the model how much fast should it learn. generally the learning rate is initialized in the start,example 0.001 or 0.0001 or 0.00001.
 		- m=m-learning rate*m_gradient
 		- c=c-learning rate*c_gradient
+
