@@ -11,8 +11,8 @@ m, c = 0, 0
 
 n = float(len(X))
 
-# Gradient Descent Algorithm working starts here ----------------
 for i in range(iterations):
+# Gradient Descent Algorithm working starts here ----------------
     Y_pred = m * X + c
 
     # Calculate gradients

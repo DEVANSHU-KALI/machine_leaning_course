@@ -19,4 +19,32 @@
 	- itterations: we gave 1000.
 - I want you to see the code of simple linear regression once to see from where the optimizer part starts. And i've aloso mentioned that part clearly.
 - Now lets see how those work.
+- **Note** : to direct implemnen these into the code, remove the lines explaining the process and directly replace the gradint calculation part with these, the other part is same for all.
 ### 1) How **Batch gradient descent** works in the code.
+- the above mentioned vairables remain same. 
+- you run a loop for itterations.
+	- the gradient calculation would look like as follow:
+		- Y_pred = m * X + c
+		- m_gradient = (-2/n) * np.sum(X * (Y - Y_pred))
+		- c_gradient = (-2/n) * np.sum(Y - Y_pred)
+		- note: the np.sum indicates that we are taking the whole dataset for each itteration to calculate the gradients and update them.
+	- now the updating part
+		- m = m - learning rate * m_gradient
+		- c = c - learning rate * c_gradient
+
+### 2) how **Stochastic gradient descent** works in the code
+- the variables remains the same.
+- loop through for itterations.
+	- to take only one random sample at a time we do the above process
+		- idx=np.random.randint(0,n) #where the n is length of n, as we know
+		- X_i = X[idx]
+		- Y_i = Y[idx]
+		- Y_pred = m * X_i + c # intialize the formula, we use X_i because we created the new value for that
+		- now the gradient caculating part
+		- m_gradient = -2 * np.sum(X_i * (Y_i - Y_pred ))
+		- c_gradient = -2 * np.sum(Y_i - Y_pred)
+		- gradient updatation part
+		- m = m - learning rate * m_gradient
+		- c = c - learning rate * c_gradient
+
+### 3) how ***Mini-Batch gradient descent** works in the code
