@@ -14,3 +14,4 @@
 - what actually you should notice is, how iteratively you changed the marks so that, you were far at first then got close and then at the end you got the answer. 
 ### What you should understand from the example
 - all the optimizers do the same, they go itratively, actually in the real world senario in ML its not that easy to get that perfect, you get close. 
+### in the other page you can see how gradient desent works and also see how the other types also work.

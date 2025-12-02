@@ -6,24 +6,17 @@
 - mainly there are three types of this, and three of them work differently.
 - it intially computes the gradients and later updates them eventually. it stop until it reaches a stopping condition which are maximum iteration, convergence or lack of imporovements etc.
 ## Types of gradient descent:
-- stochastic: takes only single sample at a time to calculate the gradients.
-- batch: uses the whole dataset to calculate the gradients.
-- mini batch: 
-### How this works in the code:, Note: the below process was done using the batch gradient descent. and this is just for example.
-- you start with random parameters (e.g, slope m, intercept c) and at the end you should find the values which minimize the loss.
-- at each step:
-	- you compute the gradients (i.e, slope and loss function).
-	- update the gradients. 
-	- you repeat this until you get the loss as less as possible where the loss wont reduce anymore or till a stopping point.
-- lets get an example of this:
-	- objective:
-		- minimize the loss function, for example the mean squared error (mse). the parameters would be m and c.
-		- the model : y=mx+c
-		- loss function(mse): 1/2*sum(y-y_pred)^2
-	- computing the gradients: we use partial derivatives with respect to m and c to do this in the math, but lets assign the formula of that calculation to a variable, so it would be as follow:
-		- m_gradient=(-2/n)*sum(x(y-y_pred))
-		- c_gradient=(-2/n)*sum(y-y_pred)
-	- now updating the gradients: we have the formula for that where we need learning rate to tell the model how much fast should it learn. generally the learning rate is initialized in the start,example 0.001 or 0.0001 or 0.00001.
-		- m=m-learning rate*m_gradient
-		- c=c-learning rate*c_gradient
-
+1) stochastic: takes only single sample at a time to calculate the gradients.
+2) batch: uses the whole dataset to calculate the gradients.
+3) mini batch: you create batches and and for every set of batch you calculate the gradients and update them.
+- you can see, how the three work differently below.
+## Process to see how thery work in the code.
+- I'll mention how all these work in the code seperately, but before konwing how they work, you need to knwow how the process starts and the key points and variables needed for that. if you see the code you'll get some idea about the structure.Now let's start
+- the variables common for three of these are as follow:
+	- learning rate: you give a small value for this and in the codes we give it a 0.1.
+	- m and c: we intially give them both zeros.
+	- n: length of the x.
+	- itterations: we gave 1000.
+- I want you to see the code of simple linear regression once to see from where the optimizer part starts. And i've aloso mentioned that part clearly.
+- Now lets see how those work.
+### 1) How **Batch gradient descent** works in the code.
