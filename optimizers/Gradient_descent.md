@@ -50,14 +50,14 @@
 - again the variables remain the same.
 - we intialize another variable batch_size=2, intialize this where we intialized the learning rate, m and c, you can also intialize this in between but, its a choice.
 - loop through for the itterations.
-	- we create bacthes here, teh replace=True is 
-	- idx=np.ranodm.choice(n,batch_size,replace=True)
-	- X_batch=X[idx]
-	- Y_batch=Y[idx]
-	- Y_pred= m * X_batch + c 
-	- calculating the gradients
-	- m_gradient = (-2/X_batch) * np.sum(X_batch * (Y_batch = Y_pred))
-	- c_gradient = (-2/X_batch) * np.sum(Y_batch - Y_pred)
-	- gradient updatations part
-	- m = m - learning_rate * m_gradient
-	- c = c - learnign_rate * c_gradient
+	- we create bacthes here, teh replace=True dsd
+		- idx=np.ranodm.choice(n,batch_size,replace=True)
+		- X_batch=X[idx]
+		- Y_batch=Y[idx]
+		- Y_pred= m * X_batch + c 
+		- calculating the gradients
+		- m_gradient = (-2/X_batch) * np.sum(X_batch * (Y_batch = Y_pred))
+		- c_gradient = (-2/X_batch) * np.sum(Y_batch - Y_pred)
+		- gradient updatations part
+		- m = m - learning_rate * m_gradient
+		- c = c - learnign_rate * c_gradient
