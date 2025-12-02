@@ -23,14 +23,13 @@
 ### 1) How **Batch gradient descent** works in the code.
 - the above mentioned vairables remain same. 
 - you run a loop for itterations.
-	- the gradient calculation would look like as follow:
 		- Y_pred = m * X + c
 		- m_gradient = (-2/n) * np.sum(X * (Y - Y_pred))
 		- c_gradient = (-2/n) * np.sum(Y - Y_pred)
 		- note: the np.sum indicates that we are taking the whole dataset for each itteration to calculate the gradients and update them.
 	- now the updating part
-		- m = m - learning rate * m_gradient
-		- c = c - learning rate * c_gradient
+		- m = m - learning_rate * m_gradient
+		- c = c - learning_rate * c_gradient
 
 ### 2) how **Stochastic gradient descent** works in the code
 - the variables remains the same.
@@ -44,7 +43,21 @@
 		- m_gradient = -2 * np.sum(X_i * (Y_i - Y_pred ))
 		- c_gradient = -2 * np.sum(Y_i - Y_pred)
 		- gradient updatation part
-		- m = m - learning rate * m_gradient
-		- c = c - learning rate * c_gradient
+		- m = m - learning_rate * m_gradient
+		- c = c - learning_rate * c_gradient
 
 ### 3) how **Mini-Batch gradient descent** works in the code
+- again the variables remain the same.
+- we intialize another variable batch_size=2, intialize this where we intialized the learning rate, m and c, you can also intialize this in between but, its a choice.
+- loop through for the itterations.
+	- we create bacthes here, teh replace=True is 
+	- idx=np.ranodm.choice(n,batch_size,replace=True)
+	- X_batch=X[idx]
+	- Y_batch=Y[idx]
+	- Y_pred= m * X_batch + c 
+	- calculating the gradients
+	- m_gradient = (-2/X_batch) * np.sum(X_batch * (Y_batch = Y_pred))
+	- c_gradient = (-2/X_batch) * np.sum(Y_batch - Y_pred)
+	- gradient updatations part
+	- m = m - learning_rate * m_gradient
+	- c = c - learnign_rate * c_gradient
