@@ -47,4 +47,4 @@
 		- m = m - learning rate * m_gradient
 		- c = c - learning rate * c_gradient
 
-### 3) how ***Mini-Batch gradient descent** works in the code
+### 3) how **Mini-Batch gradient descent** works in the code
