@@ -49,9 +49,10 @@
 ### 3) how **Mini-Batch gradient descent** works in the code
 - again the variables remain the same.
 - we intialize another variable batch_size=2, intialize this where we intialized the learning rate, m and c, you can also intialize this in between but, its a choice.
+- batch_size=2 : that means we are taking 2 data points per batch.
+- replace=True : this parameter, allows randomness in the data, which adds noise that helps convergence and generalize. randomness in sampling ensures the model always dosen't always see the data in the same order. It improves generalization by not overfitting to a fixed sequence of data. this is better for small datasets.s
 - loop through for the itterations.
-	- we create bacthes here, teh replace=True dsd
-		- idx=np.ranodm.choice(n,batch_size,replace=True)
+		- idx=np.random.choice(n,batch_size,replace=True)
 		- X_batch=X[idx]
 		- Y_batch=Y[idx]
 		- Y_pred= m * X_batch + c 
