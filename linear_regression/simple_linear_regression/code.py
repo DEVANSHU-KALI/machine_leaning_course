@@ -37,17 +37,9 @@ for i in range(iterations):
 # Final parameters
 print(f"\nFinal parameters: m = {m:.4f}, c = {c:.4f}")
 
-# Cost Function (Mean Squared Error)
-def cost_function(Y, Y_pred):
-    return np.mean((Y - Y_pred) ** 2)
-
-# Compute and display final cost
-final_loss = cost_function(Y, m * X + c)
-print(f"Final Loss: {final_loss:.4f}")
-
-# metrices
+# metrices 
 Y_pred=m * X + c
-print(f'MSE:{mean_squared_error(Y,Y_pred):.4f}')
+print(f'MSE:{mean_squared_error(Y,Y_pred):.4f}') # this is also called as RMSE(root mean squared error) and final loss
 print(f'MAE:{mean_absolute_error(Y,Y_pred):.4f}')
 print(f'R_squared:{r2_score(Y,Y_pred):.4f}')
 
