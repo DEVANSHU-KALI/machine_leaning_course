@@ -68,6 +68,7 @@ print("Adjusted R²: {:.4f}".format(adj_r2(y, y_pred, p=X.shape[1]-1, m=len(y)))
 # 6) Plot convergence
 # -----------------------------
 plt.plot(losses)
+plt.grid(True)
 plt.xlabel("Iterations")
 plt.ylabel("Loss (MSE)")
 plt.title("Convergence of Batch Gradient Descent")
