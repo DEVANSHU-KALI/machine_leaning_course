@@ -7,7 +7,7 @@
 - it all depends on how many features you have, number of features, same number of coeffecients. 
 
 ## points to know 
--
+- 
 
 # parts of the code explained
 1) generating dataset:
