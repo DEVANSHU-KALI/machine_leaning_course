@@ -44,3 +44,4 @@ plt.xlabel("Iterations")
 plt.ylabel("Loss (MSE)")
 plt.title("Convergence of Batch Gradient Descent (Diabetes dataset)")
 plt.show()
+
