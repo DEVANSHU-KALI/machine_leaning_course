@@ -7,8 +7,8 @@
 - it all depends on how many features you have, number of features, same number of coeffecients. 
 
 ## points to know 
-- 
+1) you can't actually plot the regression line on the 2d plane, you need 3d plotting to see the regression line. But here in the code we are just plotting the loss to see how the model is learning.  
 
-# parts of the code explained
+### parts of the code explained
 1) generating dataset:
     - 
