@@ -9,10 +9,14 @@
 
 ## points to know 
 1) you can't actually plot the regression line on the 2d plane, you need 3d plotting to see the regression line. But here in the code we are just plotting the loss to see how the model is learning. 
-2) 
 
 ### parts of the code explained
 1) dataset:
     - here we are taking a diabetes dataset, which is available in the sklearn library. which has 422 samples with 10 features because we are working with mulitlinear regression.
 2) X = np.c_[np.ones(m), X] (why this line)
     - this line adds a column of onces to the x to not force the model to start thorugh the origin. 
+    - n=X.shape[1] is called updated parameter count, this tells us, we are adding the intercept to the previous parameters.
+3) theta=np.zeros(n) which is to set all the parameters to zero for gradient descent.
+4) alpha is the learning rate.
+5) iterations is the number of times the gradient descent will run.
+6) losses is a list to store the loss at each iteration.

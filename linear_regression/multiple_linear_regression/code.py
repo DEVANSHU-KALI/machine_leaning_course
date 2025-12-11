@@ -21,7 +21,7 @@ losses = []
 # Batch Gradient Descent starts here---
 for _ in range(iterations):
     y_pred = X.dot(theta)              # predictions this is same as y_hat=X*theta, as we cant use the symbol, we use this.
-    error = y_pred - y                 # residuals 
+    error = y_pred - y                 # residuals (loss)
     gradients = (1/m) * X.T.dot(error) # average gradient 
     theta -= alpha * gradients         # update step
     loss = (1/m) * np.sum(error**2)    # MSE 
