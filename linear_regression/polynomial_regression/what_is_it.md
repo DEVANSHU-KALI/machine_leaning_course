@@ -1,0 +1,4 @@
+# what is it:
+- polynomial regression is a type of regression where the input features are the powers of input feature itself.
+- lets say you have some features like x1, x2, x3, now the features would be like x1, x1^2, x1^3, x2, x3. the reason behind this lies the main thing why this model is used. 
+- polynomial regression is not actually called polynomila linear regression sometimes, because we dont always get a stright line like other liner models in this model, we can also get a curve or the line bending to other side, even trying to adapt to not linear data and get good predictions, although its inside the linear model because we are using linear way of coefficients. 
