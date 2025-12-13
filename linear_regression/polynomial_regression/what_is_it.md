@@ -5,7 +5,7 @@
 - this model is first model you are going to learn in the intial stages of machine learning where you see the line bending according the data points.
 ## why do we even take the powers of the features
 - to capture the non linear pattern in the data. This make the line to bend and go through the points. 
-## why only taing the powers of x1, why not the other features 
+## why only traing the powers of x1, why not the other features 
 - it depends upon which features is showing no linear patterns in the data, if its x1 showing the non linear patterns in the data, we take the powers of it. 
 ## possible questions about this model and answers
 - how to know that, the feature is showing non linearity in the data?
@@ -21,7 +21,6 @@
     - yes there is a limit like, if you have n features, you can take the degree up to n-1, but its not recomeneded in machine learning practice, due to the problems it may create.
     - lets say you took the degree till n-1, what happens if you plot it is, you end up with a line which perfectly fits your data, it goes through every point which bring the problems like **over fitting**, **extrapolation problem** like going to higher degree makes the model unpredictable outside the training data.
 - how is the equation gonna look if we want more than one feature's powers?
-    - 
 - what happens if we take more degree?
     - it may increse **over fitting**,  **extrapolation problem** (explained above), the model also captures the noise in the data (if you take higher degree the line gets more flexible like a band and tries to go through every data point and while in that processs, it also goes through the nose and captures that too,,, which is not good for a model.) 
 - what are the disadvantages of this model?
