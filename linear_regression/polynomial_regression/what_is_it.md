@@ -9,7 +9,12 @@
 - to capture the non linear pattern in the data. This make the line to bend and go through the points. 
 ## Why only training the powers of x1, why not the other features 
 - it depends upon which features is showing no linear patterns in the data, if its x1 showing the non linear patterns in the data, we take the powers of it. 
-## Disadvantages of this model
+## Disadvantages of this model 
+- the main disadvantage is know as **overfitting** as we discussed below about it.
+- **multicolinearity**, powers of the same features are highly correlated, which makes coefficients estimate unstable.
+- **scalability issues**, works fine with small data sets and lower degrees, not good working with large datasets.
+- **limited felexibility comapered to modern models**, tree based, esemble and deep learning models perform way better than this.
+- **rarely used in practice**, most of the real world prefers, gradient boosting, random forest, neural nets etc for the work.
 ## Possible questions about this model and answers
 - **How to know that, the feature is showing non linearity in the data?**
     - the easiest way to know that is to, _plot that feature with the target term._
