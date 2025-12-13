@@ -10,8 +10,8 @@
 ## Disadvantages of this model
 ## Possible questions about this model and answers
 - **How to know that, the feature is showing non linearity in the data?**
-    - the easiest way to know that is to, __plot that feature with the target term.__ 
-    - the other method is called __persons corellations coefficitent(r)__: you calculate this between the feature and the target value
+    - the easiest way to know that is to, _plot that feature with the target term._
+    - the other method is called _persons corellations coefficitent(r)_: you calculate this between the feature and the target value
         - if the value close to 1 or -1 indicates a strong linear relationship and a value close to 0 tell the feature is showing non linear pattern.
 - **What if we have some 100s of features, what is the optimal way to know which feature should we use for powering?**
     - one of the most optimal way to know is using the k-folds cross validation, although its a advanced topic.
@@ -23,7 +23,7 @@
     - lets say you took the degree till n-1, what happens if you plot it is, you end up with a line which perfectly fits your data, it goes through every point which bring the problems like **over fitting**, **extrapolation problem** like going to higher degree makes the model unpredictable outside the training data.
 - **How is the equation gonna look if we want more than one feature's powers?**
 - **What happens if we take more degree?**
-    - it may increse **over fitting**,  **extrapolation problem** (explained above), the model also captures the noise in the data (if you take higher degree the line gets more flexible like a band and tries to go through every data point and while in that processs, it also goes through the nose and captures that too,,, which is not good for a model.) 
+    - it may increse _over fitting_,  _extrapolation problem_ (explained above), the model also captures the noise in the data (if you take higher degree the line gets more flexible like a band and tries to go through every data point and while in that processs, it also goes through the nose and captures that too, which is not good for a model.) 
 - **You may also here that, you only take the feature and its powers in the model and do the predictions, but what about the other features?**
     - there is no restriction like you should only take powers of one fetaure, its up to you, if you feel like 2 features are showing non linear relation, you can take the powers of that feature too. all that matters is, till how much degree you going to take it to.
 - **Why is this model not used wide and only heard just in the theory?**
