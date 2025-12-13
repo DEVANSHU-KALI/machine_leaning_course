@@ -3,6 +3,8 @@
 - lets say you have some features like x1, x2, x3, now the features would be like x1, x1^2, x1^3, x2, x3. the reason behind this lies the main thing why this model is used. 
 - polynomial regression is not actually called polynomila linear regression sometimes, because we dont always get a stright line like other liner models in this model, we can also get a curve or the line bending to other side, even trying to adapt to not linear data and get good predictions, although it comes under linear models because the equation of this model is linear in parameters. 
 - this model is first model you are going to learn in the intial stages of machine learning where you see the line bending according the data points.
+## model equation
+- 𝑌=𝑚1⋅𝑋+𝑚2⋅𝑋^2+𝑚3⋅𝑋^3+⋯+𝑚𝑑⋅𝑋^𝑑+𝑐
 ## Why do we even take the powers of the features
 - to capture the non linear pattern in the data. This make the line to bend and go through the points. 
 ## Why only training the powers of x1, why not the other features 
@@ -22,8 +24,10 @@
     - yes there is a limit like, if you have n features, you can take the degree up to n-1, but its not recomeneded in machine learning practice, due to the problems it may create.
     - lets say you took the degree till n-1, what happens if you plot it is, you end up with a line which perfectly fits your data, it goes through every point which bring the problems like **over fitting**, **extrapolation problem** like going to higher degree makes the model unpredictable outside the training data.
 - **How is the equation gonna look if we want more than one feature's powers?**
+    - lets say you have the features like x1, x2, x3. And you want to take powers of 2 (x1 and x3) with degrees varying, the fetures would look like, x1, x1^2, x1^3, x2, x3, x3^2 
 - **What happens if we take more degree?**
     - it may increse _over fitting_,  _extrapolation problem_ (explained above), the model also captures the noise in the data (if you take higher degree the line gets more flexible like a band and tries to go through every data point and while in that processs, it also goes through the nose and captures that too, which is not good for a model.) 
 - **You may also here that, you only take the feature and its powers in the model and do the predictions, but what about the other features?**
     - there is no restriction like you should only take powers of one fetaure, its up to you, if you feel like 2 features are showing non linear relation, you can take the powers of that feature too. all that matters is, till how much degree you going to take it to.
 - **Why is this model not used wide and only heard just in the theory?**
+    - its simply due to its disadvantages, its good to learn about this model, because you can see how the line bending here.
