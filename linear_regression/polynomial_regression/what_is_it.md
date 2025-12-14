@@ -15,7 +15,7 @@
 
 ## Disadvantages of this model
 - The main disadvantage is known as **overfitting**.
-- **Multicollinearity**: powers of the same feature are highly correlated, which makes coefficient estimates unstable.
+- **Multicolinearity**: powers of the same feature are highly correlated, which makes coefficient estimates unstable.
 - **Scalability issues**: works well with small datasets and low degrees; not suitable for large datasets.
 - **Limited flexibility compared to modern models**: tree-based, ensemble, and deep learning models often perform better.
 - **Rarely used in practice**: many real-world problems prefer gradient boosting, random forests, neural networks, etc.
@@ -46,4 +46,4 @@
     - No. You can take powers of any features that show nonlinear relationships. The important question is how high a degree you choose.
 
 - **Why isn't this model widely used in practice?**
-    - Mainly because of its disadvantages (overfitting, multicollinearity, scalability). It's still useful to learn, as it illustrates how models can bend to fit data.
+    - Mainly because of its disadvantages (overfitting, multicolinearity, scalability). It's still useful to learn, as it illustrates how models can bend to fit data.
