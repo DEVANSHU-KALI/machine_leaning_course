@@ -24,10 +24,10 @@
 ## applications
     - house price prediction
 
-### sturcture to start
-- I'm metioning this because, you should start with the simple linear regression first and the structure of git, showing the file is different if you ever noticed that, it shows which is created recently and as you can see you would see other types prioritized before the simple linear regression in the structure. so to not get mileaded and to work with a correct flow this is important, so let's start
+### structure to start
+- I'm mentioning this because, you should start with the simple linear regression first and the structure of git, showing the file is different if you ever noticed that, it shows which is created recently and as you can see you would see other types prioritized before the simple linear regression in the structure. so to not get mislead and to work with a correct flow this is important, so let's start
 - Simple linear regression first
-- Mulitple LR
+- Multiple LR
 - Polynomial LR
 - Ridge LR
 - Lasso LR
