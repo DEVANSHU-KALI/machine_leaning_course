@@ -39,19 +39,19 @@
 		- X_i = X[idx]
 		- Y_i = Y[idx]
 		- Y_pred = m * X_i + c # initialize the formula, we use X_i because we created the new value for that
-		- now the gradient caculating part
+		- now the gradient calculating part
 		- m_gradient = -2 * np.sum(X_i * (Y_i - Y_pred ))
 		- c_gradient = -2 * np.sum(Y_i - Y_pred)
-		- gradient updatation part
+		- gradient update part
 		- m = m - learning_rate * m_gradient
 		- c = c - learning_rate * c_gradient
 
 ### 3) how **Mini-Batch gradient descent** works in the code
 - again the variables remain the same.
-- we intialize another variable batch_size=2, intialize this where we intialized the learning rate, m and c, you can also intialize this in between but, its a choice.
+- we initialize another variable batch_size=2, initialize this where we initialized the learning rate, m and c, you can also initialize this in between but, its a choice.
 - batch_size=2 : that means we are taking 2 data points per batch.
-- replace=True : this parameter, allows randomness in the data, which adds noise that helps convergence and generalize. randomness in sampling ensures the model always dosen't always see the data in the same order. It improves generalization by not overfitting to a fixed sequence of data. this is better for small datasets.s
-- loop through for the itterations.
+- replace=True : this parameter, allows randomness in the data, which adds noise that helps convergence and generalize. randomness in sampling ensures the model always doesn't always see the data in the same order. It improves generalization by not overfitting to a fixed sequence of data. this is better for small datasets.s
+- loop through for the iterations.
 		- idx=np.random.choice(n,batch_size,replace=True)
 		- X_batch=X[idx]
 		- Y_batch=Y[idx]
@@ -59,6 +59,6 @@
 		- calculating the gradients
 		- m_gradient = (-2/X_batch) * np.sum(X_batch * (Y_batch = Y_pred))
 		- c_gradient = (-2/X_batch) * np.sum(Y_batch - Y_pred)
-		- gradient updatations part
+		- gradient update part
 		- m = m - learning_rate * m_gradient
-		- c = c - learnign_rate * c_gradient
+		- c = c - learning_rate * c_gradient
