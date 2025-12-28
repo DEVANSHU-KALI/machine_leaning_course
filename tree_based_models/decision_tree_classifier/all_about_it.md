@@ -9,3 +9,13 @@ Decision trees for classificaionw work by **recursively splitting the data into 
 - Branches: outcomes of the questions
 - Leaf node: final class label (e.g., yes=buyer, no=not a buyer)
 
+## Mathematical formulas
+- entropy
+- information gain
+- gini impurity (alternative metric) 
+- note: as we cant display the formal here, find it online 
+
+## Advantages and disadvantages
+- Easy to interpret	                       | Can overfit if too deep
+- Handles categorical & numerical data     | Sensitive to small data changes
+- No assumptions about distribution	Biased | toward features with many levels
