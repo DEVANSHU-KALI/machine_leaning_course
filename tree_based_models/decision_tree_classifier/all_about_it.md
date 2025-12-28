@@ -22,3 +22,13 @@ Decision trees for classificaionw work by **recursively splitting the data into 
 
 ## more about the code
 - from here understandig new concepts help a lot in the coding like, using datsets, data transformation, data visualization, evaluation metric, splitting data 
+
+## Example 
+- lets take the data set like this 
+id	Age	Student	Buys
+1	22	Yes 	Yes
+2	25	Yes 	Yes
+3	47	No	    No
+4	52	No  	No
+5	46	Yes 	Yes
+6	56	No  	No
