@@ -19,3 +19,6 @@ Decision trees for classificaionw work by **recursively splitting the data into 
 - Easy to interpret	                       | Can overfit if too deep
 - Handles categorical & numerical data     | Sensitive to small data changes
 - No assumptions about distribution	Biased | toward features with many levels
+
+## more about the code
+- from here understandig new concepts help a lot in the coding like, using datsets, data transformation, data visualization, evaluation metric, splitting data 
