@@ -25,10 +25,12 @@ Decision trees for classificaionw work by **recursively splitting the data into 
 
 ## Example 
 - lets take the data set like this 
-id	Age	Student	Buys
-1	22	Yes 	Yes
-2	25	Yes 	Yes
-3	47	No	    No
-4	52	No  	No
-5	46	Yes 	Yes
-6	56	No  	No
+| ID | Age | Student | Buys |
+|----|-----|---------|------|
+| 1  | 22  | Yes     | Yes  |
+| 2  | 25  | Yes     | Yes  |
+| 3  | 47  | No      | No   |
+| 4  | 52  | No      | No   |
+| 5  | 46  | Yes     | Yes  |
+| 6  | 56  | No      | No   |
+
