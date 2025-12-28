@@ -33,4 +33,17 @@ Decision trees for classificaionw work by **recursively splitting the data into 
 - | 4  | 52  | No      | No   |
 - | 5  | 46  | Yes     | Yes  |
 - | 6  | 56  | No      | No   |
-
+- now as there are three no's and three yes's the entropy is maximal
+- entropy and information gain (formulas).
+    - entropy of a set S with class proportions pi is 
+    - 𝐸𝑛𝑡𝑟𝑜𝑝𝑦(𝑆)=−∑ with lower limit(𝑖) 𝑝𝑖log2𝑝𝑖
+- information gain on splitting an attribut A is
+    - 𝐼𝐺(𝑆,𝐴)=𝐸𝑛𝑡𝑟𝑜𝑝𝑦(𝑆)−∑ with lower limit (𝑣∈𝑉𝑎𝑙𝑢𝑒𝑠(𝐴)) (∣𝑆𝑣∣/∣𝑆∣)𝐸𝑛𝑡𝑟𝑜𝑝𝑦(𝑆𝑣)
+- these are standard definations for choosing the splits.
+- Root entropy.
+    - two classes with equal proportions Pyes = Pno = 0.5
+- candidate split 1 - strudent(Yes / No)
+    - student = yes:ids 1,2,5 -> all yes -> entropy = 0
+    - student = no:ids 3,4,6 -> all no -> entropy = 0 
+    - weighted entropy:
+        - (3/6) 0 + (3/6) 0 = 0......, thats because, we have 3 out 6 as yes and 3 out of 6 as no, so we got 3/6 two times and mulitiplied with zero is their entropies
