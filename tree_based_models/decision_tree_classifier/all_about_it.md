@@ -47,3 +47,8 @@ Decision trees for classificaionw work by **recursively splitting the data into 
     - student = no:ids 3,4,6 -> all no -> entropy = 0 
     - weighted entropy:
         - (3/6) 0 + (3/6) 0 = 0......, thats because, we have 3 out 6 as yes and 3 out of 6 as no, so we got 3/6 two times and mulitiplied with zero is their entropies
+        - so IG(S,Student)= 1.0 - 0 = 1.0 
+        - this is perfect split which yeilds the pure leaves.
+
+## points to note:
+- from this stage learning using the jupyter notebook helps a lot to see the outputs are various stages.
