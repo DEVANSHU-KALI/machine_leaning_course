@@ -52,3 +52,4 @@ Decision trees for classificaionw work by **recursively splitting the data into 
 
 ## points to note:
 - from this stage learning using the jupyter notebook helps a lot to see the outputs are various stages.
+- because we have different stage to see the things going on, like after importing the dataset, we need to see what's in it, what type of things we are using in it, the train and test split part, etc.
