@@ -53,3 +53,9 @@ Decision trees for classificaionw work by **recursively splitting the data into 
 ## points to note:
 - from this stage learning using the jupyter notebook helps a lot to see the outputs are various stages.
 - because we have different stage to see the things going on, like after importing the dataset, we need to see what's in it, what type of things we are using in it, the train and test split part, etc.
+
+
+## The whole workflow in the model
+- we need to know all the information gains of the attributes, the attribute having the highest info gain will be the root node, because it decides the decision tree.
+- to calculate the info gain of the attribute, the first thing we need to calculate the entropy of the whole dataset, and the entropy of the each individual value of that attribute. for example: attribute=outlook, values of attribute are (sunny, overcast, rain), now we need to calculate the entropy of the whole dataset, entropy of the sunny, entropy of overcast and entropy of rain. then we will get info gain of the attribute=outlook.
+![photo](../images/decision_tree1.png)
