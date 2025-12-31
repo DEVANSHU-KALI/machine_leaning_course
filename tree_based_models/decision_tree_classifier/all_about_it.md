@@ -57,5 +57,5 @@ Decision trees for classificaionw work by **recursively splitting the data into 
 
 ## The whole workflow in the model
 - we need to know all the information gains of the attributes, the attribute having the highest info gain will be the root node, because it decides the decision tree.
-- to calculate the info gain of the attribute, the first thing we need to calculate the entropy of the whole dataset, and the entropy of the each individual value of that attribute. for example: attribute=outlook, values of attribute are (sunny, overcast, rain), now we need to calculate the entropy of the whole dataset, entropy of the sunny, entropy of overcast and entropy of rain. then we will get info gain of the attribute=outlook.
-![photo](../images/decision_tree1.png)
+- to calculate the info gain of the attribute, the first thing we need to calculate the entropy of the whole dataset, and the entropy of the each individual value of that attribute. for example: attribute=outlook, values of attribute are (sunny, overcast, rain), now we need to calculate the entropy of the whole dataset, entropy of the sunny, entropy of overcast and entropy of rain. then we will get info gain of the attribute=outlook. **see the decision_tree1.png image from the images folder of this repo at this point**
+- ![photo](../images/decision_tree1.png)
