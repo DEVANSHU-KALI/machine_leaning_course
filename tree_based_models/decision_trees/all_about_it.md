@@ -2,7 +2,7 @@
 - Decision trees are a machine learning concept used for predictive modeling. They represent decisions in a tree-like structure, where each internal node corresponds to a feature-based test, each branch represents the outcome of that test, and each leaf node gives a final prediction. The idea is to recursively split the dataset into subsets until the data in each subset is as “pure” or homogeneous as possible with respect to the target variable.
 - we can use this concept for classification and regression.
 
-## How it actuall works
+## How it actually works
 - Root node: entire dataset
 - Decision nodes: feature_based questions (e.g., age>30)
 - Branches: outcomes of the questions
@@ -15,12 +15,12 @@
 - note: as we cant display the formal here, find it online 
 
 ## Advantages and disadvantages
-- Easy to interpret	                       | Can overfit if too deep
+- Easy to interpret	                       | Can over fit if too deep
 - Handles categorical & numerical data     | Sensitive to small data changes
 - No assumptions about distribution	Biased | toward features with many levels
 
 ## more about the code
-- from here understandig new concepts help a lot in the coding like, using datsets, data transformation, data visualization, evaluation metric, splitting data 
+- from here understanding new concepts help a lot in the coding like, using datasets, data transformation, data visualization, evaluation metric, splitting data 
 
 ## Example 
 - lets take the data set like this 
