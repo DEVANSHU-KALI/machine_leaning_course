@@ -1,7 +1,6 @@
-Now as we discussed, tree based models are used for both classification and regression.
-- here's about the **classification**
 # What is it?
-Decision trees for classificaionw work by **recursively splitting the data into subsets** using the feature-based rules which minimize class purity. each split is choosen using metrics like **Entropy** or **Gini index**.
+- Decision trees are a machine learning concept used for predictive modeling. They represent decisions in a tree-like structure, where each internal node corresponds to a feature-based test, each branch represents the outcome of that test, and each leaf node gives a final prediction. The idea is to recursively split the dataset into subsets until the data in each subset is as “pure” or homogeneous as possible with respect to the target variable.
+- we can use this concept for classification and regression.
 
 ## How it actuall works
 - Root node: entire dataset
