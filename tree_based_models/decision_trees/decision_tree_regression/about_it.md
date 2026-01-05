@@ -14,4 +14,4 @@
 - now after that we need to calculate the SD of individual attribute except the target attribute, late we will calculate the reduction in SD.
 - same as in the classifcation as we did again for the values inside a attribute seperately, we do that same here. first outlook = sunny, outlook = overcast, etc, we now calculat the SD, weighted SD and lastly the reduction in SD. lets start with outlook = sunny **and the caculation is shown in image1.png**, after doing to all the other values you get the SD of each one and you calculate the weighted SD and next the reduction in SD, **all those calcuations are in one image naming image2.png.**
 - now for the 'temp' attribute, **image3.png.**, next for humidity, and wind. all the reduction in SD in one , **image4.png**.
-- as we can see that outlook has the max reduction in SD, so we take that as root node.
+- as we can see that outlook has the max reduction in SD, so we take that as root node. now same as we did in the classification part, we do the same here, exept the outlook attribute, consider the other attribtes and find which of them has the highest reduction in SD to make a new branch for the outlook.
