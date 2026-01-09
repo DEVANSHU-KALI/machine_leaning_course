@@ -1,2 +1,2 @@
 # What is it 
-- 
+- this model will use mulitple decision trees and based on the highest voting the output is decided, say it like making a person chairman, see how people vote and based on the highest votes the chairman is elected. that's how the random forest tree model works in the back stage.
