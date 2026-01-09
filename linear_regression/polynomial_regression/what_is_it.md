@@ -1,38 +1,49 @@
 # What is it?
-- polynomial regression is a type of regression where the input features are the powers of input feature itself.
-- lets say you have some features like x1, x2, x3, now the features would be like x1, x1^2, x1^3, x2, x3. the reason behind this lies the main thing why this model is used. 
-- polynomial regression is not actually called polynomila linear regression sometimes, because we dont always get a stright line like other liner models in this model, we can also get a curve or the line bending to other side, even trying to adapt to not linear data and get good predictions, although it comes under linear models because the equation of this model is linear in parameters. 
-- this model is first model you are going to learn in the intial stages of machine learning where you see the line bending according the data points.
-## model equation
-- 𝑌=𝑚1⋅𝑋+𝑚2⋅𝑋^2+𝑚3⋅𝑋^3+⋯+𝑚𝑑⋅𝑋^𝑑+𝑐
-## Why do we even take the powers of the features
-- to capture the non linear pattern in the data. This make the line to bend and go through the points. 
-## Why only training the powers of x1, why not the other features 
-- it depends upon which features is showing no linear patterns in the data, if its x1 showing the non linear patterns in the data, we take the powers of it. 
-## Disadvantages of this model 
-- the main disadvantage is know as **overfitting** as we discussed below about it.
-- **multicolinearity**, powers of the same features are highly correlated, which makes coefficients estimate unstable.
-- **scalability issues**, works fine with small data sets and lower degrees, not good working with large datasets.
-- **limited felexibility comapered to modern models**, tree based, esemble and deep learning models perform way better than this.
-- **rarely used in practice**, most of the real world prefers, gradient boosting, random forest, neural nets etc for the work.
-## Possible questions about this model and answers
-- **How to know that, the feature is showing non linearity in the data?**
-    - the easiest way to know that is to, _plot that feature with the target term._
-    - the other method is called _persons corellations coefficitent(r)_: you calculate this between the feature and the target value
-        - if the value close to 1 or -1 indicates a strong linear relationship and a value close to 0 tell the feature is showing non linear pattern.
-- **What if we have some 100s of features, what is the optimal way to know which feature should we use for powering?**
-    - one of the most optimal way to know is using the k-folds cross validation, although its a advanced topic.
-    - but in general this model is better for konnwoing the existence of the model, becuase in paractical we just dont use this model often wehn we have some 100 features, due to disadvantages of this model.
-- **What about the other features, are all the features needed even if we are adding some new feature columns?**
-    - you take the powers to the features which are showing non linear relation pattern, and if you feel like other features are also important, you can keep them for training the model, or remove them if you dont want.
-- **Is there any limit to the degree we take?**
-    - yes there is a limit like, if you have n features, you can take the degree up to n-1, but its not recomeneded in machine learning practice, due to the problems it may create.
-    - lets say you took the degree till n-1, what happens if you plot it is, you end up with a line which perfectly fits your data, it goes through every point which bring the problems like **over fitting**, **extrapolation problem** like going to higher degree makes the model unpredictable outside the training data.
-- **How is the equation gonna look if we want more than one feature's powers?**
-    - lets say you have the features like x1, x2, x3. And you want to take powers of 2 (x1 and x3) with degrees varying, the fetures would look like, x1, x1^2, x1^3, x2, x3, x3^2 
-- **What happens if we take more degree?**
-    - it may increse _over fitting_,  _extrapolation problem_ (explained above), the model also captures the noise in the data (if you take higher degree the line gets more flexible like a band and tries to go through every data point and while in that processs, it also goes through the nose and captures that too, which is not good for a model.) 
-- **You may also here that, you only take the feature and its powers in the model and do the predictions, but what about the other features?**
-    - there is no restriction like you should only take powers of one fetaure, its up to you, if you feel like 2 features are showing non linear relation, you can take the powers of that feature too. all that matters is, till how much degree you going to take it to.
-- **Why is this model not used wide and only heard just in the theory?**
-    - its simply due to its disadvantages, its good to learn about this model, because you can see how the line bending here.
+- Polynomial regression is a type of regression where the input features include powers of the original feature(s).
+- Let's say you have features like x1, x2, x3. The transformed features might be x1, x1^2, x1^3, x2, x3. This lets the model capture nonlinear relationships in the data.
+- Polynomial regression is sometimes called polynomial linear regression. We don't always get a straight line like other linear models; we can get a curve (the line bends) to adapt to nonlinear data while still being a linear model because the equation is linear in the parameters.
+- This model is one of the first you learn in the initial stages of machine learning, where you can see the line bending according to the data points.
+
+## Model equation
+- 𝑌 = 𝑚1⋅𝑋 + 𝑚2⋅𝑋^2 + 𝑚3⋅𝑋^3 + ⋯ + 𝑚𝑑⋅𝑋^𝑑 + 𝑐
+
+## Why take powers of the features?
+- To capture nonlinear patterns in the data. This makes the model more flexible and better able to fit the points.
+
+## Why train powers of only x1 and not other features?
+- It depends on which features show nonlinear patterns. If x1 shows nonlinearity, we take powers of it.
+
+## Disadvantages of this model
+- The main disadvantage is known as **overfitting**.
+- **Multicollinearity**: powers of the same feature are highly correlated, which makes coefficient estimates unstable.
+- **Scalability issues**: works well with small datasets and low degrees; not suitable for large datasets.
+- **Limited flexibility compared to modern models**: tree-based, ensemble, and deep learning models often perform better.
+- **Rarely used in practice**: many real-world problems prefer gradient boosting, random forests, neural networks, etc.
+
+## Possible questions and answers
+
+- **How can you tell a feature is showing nonlinearity?**
+    - The easiest way is to plot the feature against the target.
+    - Another method is Pearson's correlation coefficient (r): values close to ±1 indicate a strong linear relationship; values near 0 suggest the relationship may be nonlinear.
+
+- **If we have hundreds of features, how do we know which to raise to powers?**
+    - A practical approach is to use k-fold cross-validation (an advanced topic).
+    - In practice, polynomial regression is mainly useful for small or simple problems rather than large feature sets.
+
+- **Are all features needed if we add polynomial terms?**
+    - You typically add polynomial terms for features that show nonlinear relationships. Keep features that are important; remove uninformative ones.
+
+- **Is there a limit to the degree we should take?**
+    - Very high degrees lead to overfitting and extrapolation problems. Increasing degree may make the model fit training data perfectly but perform poorly on new data.
+
+- **How does the equation look if we use powers of more than one feature?**
+    - For features x1, x2, x3, if you take powers of x1 and x3, the feature set might be: x1, x1^2, x1^3, x2, x3, x3^2.
+
+- **What happens if we take a higher degree?**
+    - It may increase overfitting and extrapolation issues. The model can also capture noise in the data.
+
+- **Do we have to take powers of only one feature?**
+    - No. You can take powers of any features that show nonlinear relationships. The important question is how high a degree you choose.
+
+- **Why isn't this model widely used in practice?**
+    - Mainly because of its disadvantages (overfitting, multicollinearity, scalability). It's still useful to learn, as it illustrates how models can bend to fit data.
