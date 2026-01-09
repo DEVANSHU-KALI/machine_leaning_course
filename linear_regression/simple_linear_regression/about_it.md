@@ -1,15 +1,18 @@
-Note: I hope you came here after reading about the linear regression.
-# What does it mean
-- simple linear regression only models **relationship between 1 dependent variable and 1 independent variable**.
-- **Formula** for this model is: y_pred=m*x+c
-- where the m and c are explained in the ___"All_about_linear_regression.md"___ page
-- as explained that page, the next step would be the optimization step and you can see that clearly happening in the code.
-- for more info about the otpimation step visit the ___gradient descent page from the optimizer folder___, there the process explained also works for this algorithm, i also mentiond this model and took this as example to explain that optimzer.
-- you can simple learn how thats working and also get hands on the code while learning. 
+Note: This page assumes you have read the linear regression overview.
 
-## How to execute the code: 
-- you need to install the numpy and matplotlib library.
-- then copy the code to any of your ide or python interpreter and run it, you'll see the final parameters and a graph.
-- Note: the code provided for this uses batch gradient desent optimizer, and this is a iterative apporach to find the best fit line for the given data points
-- But you can also use the closed form solution (Normal Equation) to find the best fit line directly without iteration. The closed form solution is computationally more efficient for small datasets, but for larger datasets or when dealing with multiple features, gradient descent is often preferred due to its scalability and flexibility. to use this closed form solution, 
-**you need to import the simple linear regression model from the sklearn.linear_models library** and do some tweeks to execute the code. After this, The code looks way smaller than this. 
+# What does it mean?
+- Simple linear regression models the relationship between one dependent variable and one independent variable.
+- Formula: y_pred = m * x + c
+- See "All_about_linear_regression.md" for definitions of m and c.
+- As explained on that page, the next step is optimization, which you can observe in the code.
+- For more details about optimization, see the gradient descent page in the optimizer folder. The same optimization process applies to this model; it is used there as an example to explain the optimizer.
+- You can run the code to see how the algorithm converges and view the resulting plot.
+
+## How to execute the code
+- Install required packages:
+  - python -m pip install numpy matplotlib
+- Copy the code into your IDE or run the script in a Python interpreter. The script prints the final parameters and displays a graph.
+- The provided implementation uses batch gradient descent, an iterative approach to find the best-fit line.
+- You can also use the closed-form Normal Equation to compute parameters without iteration (efficient for small datasets). Alternatively, use sklearn's implementation:
+  - from sklearn.linear_model import LinearRegression
+  - This typically results in much shorter code.

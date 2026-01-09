@@ -21,3 +21,4 @@
 4) alpha is the learning rate.
 5) iterations is the number of gradient descent steps.
 6) losses is a list to store the loss value at each iteration.
+
