@@ -3,4 +3,3 @@
 
 ## What makes this model better than a single decision tree
 - Single decision trees are sensitive to the training data: small changes can lead to very different trees (high variance). Random forests reduce variance by averaging many de-correlated trees (built using bootstrapped samples and random feature subsets), which usually results in more robust and generalizable predictions.
-- 
