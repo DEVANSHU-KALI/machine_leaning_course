@@ -20,3 +20,8 @@
 - that's because we used two random processes bootstrapping and random feature selection 
 2) why bootstrapping and random feature selection?
 - bootstrapping ensures that we are not using the same dataset for every tree, so in a way it helps the mode to be less sensitive to the original data, and the random feature selection helps to reduce the correlation between the trees, if we use every feature, then the most of the trees would have the same decision nodes and they will act very similarly, that will increase the variance. there is another use of the random feature selection, some of the trees will be trained on less important features, so they will give bad predictions, bu there will also be some trees give good predictions, so they will balance it out.
+3) what is the ideal size of the feature subset?
+- in our case we took 2 features which is close to the square root of the no.of features we have, which is 5. researchers have found values close to the log or square root of the no.of features work well
+4) how to use this model for the regression problem?
+- while combining the predictions just take the average and you can use it for the regression problem. and we'll discuss about it later.
+- 
