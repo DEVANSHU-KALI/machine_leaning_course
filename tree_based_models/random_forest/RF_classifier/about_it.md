@@ -30,4 +30,9 @@
 - that's a insightful question to know, It's statistically very rare case that we get into this type of situations. here's how the model handles those ties:
     1) implementation specific tie breaking:
     - most libraries (like sklearn in python) don't actually flip a coin, they actually follow a consistent internal logic.
-    - 
+        - lowest index/Alphabetical order: its simple, if both have the same number of votes the lowest one is declared as the output, in 1 and 0, 0 is declared as the output.
+            - now you might wonder, what if there are yes or no, true or false instead of 0 and 1. it doesn't matter because, in the implementation part you are going to transform those into binary values, and you get 0, which maybe no or false in most cases, and it also depends on what you declare, if you declare 0 as yes and 1 as no, the answer will be yes in this case, this is rare but maybe some people do this.
+            - actually the model is not caring about the 0 or 1, it's caring about the probability under the hood. If you have 100 trees and 50 vote "Yes" (1), the predicted probability (P) is : P(class=1) = summation(votes)/n_estimator = 50/100= 0.5
+            - In Python, the predict() function uses default threshold of >0.5 to return 1. Since 0.5 is not greater than 0.5, it returns 0.
+    2) how to prevent ties:
+    - usually you can simply pick odd number or trees, like instead of taking 100, take 99 or 101. so the mathematical tie will be impossible.
