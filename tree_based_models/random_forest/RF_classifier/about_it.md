@@ -24,4 +24,10 @@
 - in our case we took 2 features which is close to the square root of the no.of features we have, which is 5. researchers have found values close to the log or square root of the no.of features work well
 4) how to use this model for the regression problem?
 - while combining the predictions just take the average and you can use it for the regression problem. and we'll discuss about it later.
-- 
+
+## important points to know
+1)  if you understand this model very clearly, you would've understand that the output of the model is based on the which class gets more votes (I mean the class which most of the decision trees return). but what if both the positive class and negative class have same number of votes?, if we take 100 trees, and 50 trees return yes and 50 trees return no, for a new data point, what will the model predict?
+- that's a insightful question to know, It's statistically very rare case that we get into this type of situations. here's how the model handles those ties:
+    1) implementation specific tie breaking:
+    - most libraries (like sklearn in python) don't actually flip a coin, they actually follow a consistent internal logic.
+    - 
