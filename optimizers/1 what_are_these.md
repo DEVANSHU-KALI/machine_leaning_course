@@ -13,3 +13,15 @@
   - For some models like linear regression, there's closed form solution using the matrix algebra, in such cases you dont need any iterative approach, the best parameters are computed automatically.
 - For most ml models (dl and large datasets), closed form doesn't exist. So optimizer come into play.
 - These optimizers iteratively adjust the parameters to reduce the loss as in the first point.
+
+## Real world example:
+
+- Lets take a situation like, you and your friend wrote a test which is for 50 marks and you got the results, you know you marks but you asked your friend, how he wrote his exam and about his marks, he said he wrote the exam well and said to guess the marks, now here's the main part.
+- Lets take like, you guessed 35, and he said nope!, you guessed low, you again think and say like 40, now he said 'you are close', finally you said 45 and he said, 'yes i got 45'.
+- What actually you should notice is, how iteratively you changed the marks so that, you were far at first then got close and then at the end you got the answer.
+
+### What you should understand from the example
+
+- All the optimizers do the same, they go iteratively, actually in the real world scenario in ML its not that easy to get that perfect, you get close.
+
+### In the other page you can see how gradient descent works and also see how the other types also work.
