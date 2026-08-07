@@ -43,3 +43,15 @@
   m = m - learning_rate * m_gradient
   c = c - learning_rate * c_gradient
   ```
+
+### 2) How **Stochastic gradient descent** works in the code
+
+- The variables remains the same.
+- Loop through for iterations:
+  - To take only one random sample at a time we do the above process:
+    ```python
+    idx = np.random.randint(0, n)  # Where the n is length of n, as we know
+    X_i = X[idx]
+    Y_i = Y[idx]
+    Y_pred = m * X_i + c  # Initialize the formula, we use X_i because we created the new value for that
+    ```
