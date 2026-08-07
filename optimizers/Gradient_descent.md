@@ -73,3 +73,19 @@
 - `batch_size = 2`: That means we are taking 2 data points per batch.
 - `replace = True`: This parameter, allows randomness in the data, which adds noise that helps convergence and generalize. Randomness in sampling ensures the model always doesn't always see the data in the same order. It improves generalization by not overfitting to a fixed sequence of data. This is better for small datasets.
 - Loop through for the iterations:
+  ```python
+  idx = np.random.choice(n, batch_size, replace=True)
+  X_batch = X[idx]
+  Y_batch = Y[idx]
+  Y_pred = m * X_batch + c
+  ```
+  - Calculating the gradients:
+    ```python
+    m_gradient = (-2/X_batch) * np.sum(X_batch * (Y_batch - Y_pred))
+    c_gradient = (-2/X_batch) * np.sum(Y_batch - Y_pred)
+    ```
+  - Gradient update part:
+    ```python
+    m = m - learning_rate * m_gradient
+    c = c - learning_rate * c_gradient
+    ```
