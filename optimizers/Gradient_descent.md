@@ -1,7 +1,7 @@
-# What is it 
+# What is Gradient Descent
 - *It's an iterative optimization algorithm which is used to train the machine learning models to adjust the parameters and minimize the loss function.*
 - you can also say it like, its a **first order** optimization algorithm to adjust the parameters to get the minimum loss.
-	- you'll later know why i used the term first order there.
+	- you'll later know why I used the term first order there.
 # How it optimizes the loss !!
 - mainly there are three types of this, and three of them work differently.
 - it initially computes the gradients and later updates them eventually. it stop until it reaches a stopping condition which are maximum iteration, convergence or lack of improvements etc.
@@ -52,13 +52,13 @@
 - batch_size=2 : that means we are taking 2 data points per batch.
 - replace=True : this parameter, allows randomness in the data, which adds noise that helps convergence and generalize. randomness in sampling ensures the model always doesn't always see the data in the same order. It improves generalization by not overfitting to a fixed sequence of data. this is better for small datasets.s
 - loop through for the iterations.
-		- idx=np.random.choice(n,batch_size,replace=True)
-		- X_batch=X[idx]
-		- Y_batch=Y[idx]
-		- Y_pred= m * X_batch + c 
-		- calculating the gradients
-		- m_gradient = (-2/X_batch) * np.sum(X_batch * (Y_batch = Y_pred))
-		- c_gradient = (-2/X_batch) * np.sum(Y_batch - Y_pred)
-		- gradient update part
-		- m = m - learning_rate * m_gradient
-		- c = c - learning_rate * c_gradient
+	- idx=np.random.choice(n,batch_size,replace=True)
+	- X_batch=X[idx]
+	- Y_batch=Y[idx]
+	- Y_pred= m * X_batch + c 
+	- calculating the gradients
+	- m_gradient = (-2/X_batch) * np.sum(X_batch * (Y_batch = Y_pred))
+	- c_gradient = (-2/X_batch) * np.sum(Y_batch - Y_pred)
+	- gradient update part
+	- m = m - learning_rate * m_gradient
+	- c = c - learning_rate * c_gradient
