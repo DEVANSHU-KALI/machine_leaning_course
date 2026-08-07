@@ -55,3 +55,21 @@
     Y_i = Y[idx]
     Y_pred = m * X_i + c  # Initialize the formula, we use X_i because we created the new value for that
     ```
+  - Now the gradient calculating part:
+    ```python
+    m_gradient = -2 * np.sum(X_i * (Y_i - Y_pred))
+    c_gradient = -2 * np.sum(Y_i - Y_pred)
+    ```
+  - Gradient update part:
+    ```python
+    m = m - learning_rate * m_gradient
+    c = c - learning_rate * c_gradient
+    ```
+
+### 3) How **Mini-Batch gradient descent** works in the code
+
+- Again the variables remain the same.
+- We initialize another variable `batch_size = 2`. Initialize this where we initialized the learning rate, `m` and `c`. You can also initialize this in between but, its a choice.
+- `batch_size = 2`: That means we are taking 2 data points per batch.
+- `replace = True`: This parameter, allows randomness in the data, which adds noise that helps convergence and generalize. Randomness in sampling ensures the model always doesn't always see the data in the same order. It improves generalization by not overfitting to a fixed sequence of data. This is better for small datasets.
+- Loop through for the iterations:
