@@ -13,4 +13,15 @@
 
 1) You can't easily visualize the regression hyperplane in 2D when there are more than one feature; for two features you can use a 3D plot. In code examples we often plot the training loss to observe learning progress.
 
+### Parts of the code explained
+
+1) Dataset:
+    - We use the diabetes dataset from sklearn. It contains 442 samples and 10 features, which is suitable for multiple linear regression examples.
+2) `X = np.c_[np.ones(m), X]` (Why this line):
+    - This line adds a column of ones to `X` so the model can learn an intercept term instead of being forced through the origin.
+    - `n = X.shape[1]` gives the number of parameters (including the intercept).
+3) `theta = np.zeros(n)`: Initializes all parameters to zero for gradient descent.
+4) `alpha` is the learning rate.
+5) `iterations` is the number of gradient descent steps.
+6) `losses` is a list to store the loss value at each iteration.
 
