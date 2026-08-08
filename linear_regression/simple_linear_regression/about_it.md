@@ -15,3 +15,6 @@ Note: This page assumes you have read the linear regression overview.
   - `python -m pip install numpy matplotlib`
 - Copy the code into your IDE or run the script in a Python interpreter. The script prints the final parameters and displays a graph.
 - The provided implementation uses batch gradient descent, an iterative approach to find the best-fit line.
+- You can also use the closed-form Normal Equation to compute parameters without iteration (efficient for small datasets). Alternatively, use sklearn's implementation:
+  - `from sklearn.linear_model import LinearRegression`
+  - This typically results in much shorter code.
