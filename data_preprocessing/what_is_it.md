@@ -17,3 +17,9 @@ As we know machine learning is all about getting a model trained on data, to mak
 - Handling missing in time-series & sequential data
 - Feature engineering with missingness (missing as signal)
 - Real-world pitfalls
+
+2) Data Cleaning (Beyond basics):
+- Handling inconsistent formats (dates, categories, text)
+- Outlier detection (IQR, Z-score, Isolation Forest)
+- De-duplication strategies
+- Data leakage issues (very important in real systems)
