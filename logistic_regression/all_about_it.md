@@ -20,3 +20,10 @@ The line **"models the likelihood of the class membership"** means:
       - Log loss is convex, so that the gradients can easily find the global minimum.
       - MSE treat the errors linearly, which doesn’t make sense in the classification process.
       - Log loss focuses on how confident the model is, and that the crucial thing here.
+           
+3) Now comes the optimization step.
+- This step is common and same as it is done in the linear regression. 
+
+4) Example image of the logistic regression
+<!-- fixed path: use the actual filename in ../images/ -->
+![photo](../images/example_image_logisitic_reg.png)
