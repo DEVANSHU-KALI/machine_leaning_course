@@ -23,3 +23,34 @@ As we know machine learning is all about getting a model trained on data, to mak
 - Outlier detection (IQR, Z-score, Isolation Forest)
 - De-duplication strategies
 - Data leakage issues (very important in real systems)
+
+3) Feature Engineering (Core Skill)
+- Encoding (target encoding, embeddings—not just one-hot)
+- Scaling (when it matters, when it doesn’t)
+- Feature interactions
+- Domain-driven feature creation
+- Handling high-cardinality features
+4) Data Transformation Pipelines
+- sklearn pipelines & column transformers
+- Reproducible preprocessing (production mindset)
+- Handling train/test mismatch
+- Online vs offline preprocessing
+5) Handling Imbalanced Data
+- SMOTE, ADASYN
+- Class weights vs resampling
+- When NOT to balance data
+6) Text Preprocessing (for NLP → LLM path)
+- Tokenization (classical vs modern)
+- Cleaning vs over-cleaning (important nuance)
+- Embeddings vs traditional preprocessing
+- Preparing data for transformers
+7) Large-Scale / Real-World Data Handling
+- Batch processing vs streaming
+- Memory optimization (very practical)
+- Using tools like pandas vs polars vs spark (when to use what)
+8) Data Validation & Quality Checks
+- Schema validation
+- Drift detection (train vs production)
+- Tools (Great Expectations – brief intro)
+
+We'll cover all these with if there are anything missing. 
