@@ -109,4 +109,36 @@ When to use:
 - If data is skewed → mean is bad
 - Median is robust
 
-### 
+### 2. KNN Imputer
+```python
+from sklearn.impute import KNNImputer
+```
+How it works:
+
+- Finds similar rows
+- Fills value using neighbors
+
+When to use:
+
+- Dataset is small/medium
+- Features are correlated
+
+Avoid when:
+
+- Large dataset (slow)
+- Many missing values
+
+### 3. Iterative Imputer (Advanced)
+```python
+from sklearn.experimental import enable_iterative_imputer
+from sklearn.impute import IterativeImputer
+```
+How:
+- Predict missing values using other features (like mini-model)
+
+When to use:
+- High-quality datasets
+- Research / high accuracy needs
+
+Real-world note:
+- Used less in production (complex, slow)
