@@ -23,7 +23,18 @@ More importantly:
 - Can destroy relationships in data
 - Leads to data leakage if done incorrectly
 
-## 3. Types of Missing Data (Practical View Only)
+## 3. Types of Missing Data (Three types)
+
+### 1. MCAR: Missing Completely At Random
+- **The Concept**: The missingness has zero relationship with any feature in the dataset—observed or unobserved. It happens purely by chance or random accident.
+- **Real-World Example**: A lab technician accidentally drops a test tube, or a sensor randomly loses connection for a second due to a transient power flicker.
+- **Impact & Imputation**: Safe to delete rows or use basic imputation (SimpleImputer with mean/median/mode) because removing or imputing them will not introduce systematic bias.
+
+### 2. MAR: Missing At Random
+- **The Concept**: The missingness is related to other observed features, but not related to the missing value itself.
+- **Real-World Example**: In a health survey, older people are less likely to report their annual income. The missingness of `Income` depends on `Age` (which is recorded), not on whether their income is high or low.
+- **Impact & Imputation**: Dropping rows causes bias. Advanced multivariate methods like `KNNImputer` or `IterativeImputer (MICE)` work best here because they reconstruct the missing values using the related observed features (e.g., using `Age` to predict `Income`).
+
 
 You don’t need heavy theory, just this:
 
@@ -88,57 +99,45 @@ Work inside pipelines
 ## 6. Imputation Techniques (WHAT is used WHEN)
 
 ### 1. Simple Imputer (MOST USED)
-```python 
-from sklearn.impute import SimpleImputer
-```
-Strategies:
-- mean
-- median
-- most_frequent
-- constant
-
-When to use:
-| Data Type               | Strategy      |
-|:--                      |:--            |
-| Numerical (normal dist) | mean          |
-| Numerical (skewed)      | ✅ median     |
-| Categorical             | most_frequent |
-
-👉 IMPORTANT (your point): Skewness
-
-- If data is skewed → mean is bad
-- Median is robust
+Explained individually in the folder: [data_preprocessing\1) missing_data_handling\1) simple_imputer]
 
 ### 2. KNN Imputer
-```python
-from sklearn.impute import KNNImputer
-```
-How it works:
-
-- Finds similar rows
-- Fills value using neighbors
-
-When to use:
-
-- Dataset is small/medium
-- Features are correlated
-
-Avoid when:
-
-- Large dataset (slow)
-- Many missing values
+Explained individually in the folder: [data_preprocessing\1) missing_data_handling\2) knn_imputer]
 
 ### 3. Iterative Imputer (Advanced)
-```python
-from sklearn.experimental import enable_iterative_imputer
-from sklearn.impute import IterativeImputer
+Explained individually in the folder: [data_preprocessing\1) missing_data_handling\2) iterative_imputer]
+
+### 4. Model-based Handling (Very Practical)
+Explained individually in the folder: [data_preprocessing\1) missing_data_handling\2) model_based]
+
+## 7. Functions You MUST Remember (Important)
+
+### Pandas (Basic bu important)
+```python 
+df.isnull()
+df.isnull().sum()
+df.dropna()
+df.fillna()
 ```
-How:
-- Predict missing values using other features (like mini-model)
 
-When to use:
-- High-quality datasets
-- Research / high accuracy needs
+### Sklearn core
+```python
+from sklearn.impute SimpleImputer
+from skelarn.impute KNNImputer
+from skelarn.impute IterativeImputer
+```
 
-Real-world note:
-- Used less in production (complex, slow)
+### Pipeline
+```python
+from skelarn.pipeline import Pipeline
+```
+
+## 8. Common mistakes (very important)
+- using **mean** on **skewed data**
+- fitting Imputer on full dataset (data leakage)
+- Dropping too much data blindly
+- Ignoring missing as a feature
+- Using knn on huge datasets
+
+To avoid these mistakes, make sure that you understand all the 4 techniques mentioned very clearly.
+

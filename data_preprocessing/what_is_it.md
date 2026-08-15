@@ -54,3 +54,4 @@ As we know machine learning is all about getting a model trained on data, to mak
 - Tools (Great Expectations – brief intro)
 
 We'll cover all these with if there are anything missing. 
+
