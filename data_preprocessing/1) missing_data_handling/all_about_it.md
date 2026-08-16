@@ -35,8 +35,20 @@ More importantly:
 - **Real-World Example**: In a health survey, older people are less likely to report their annual income. The missingness of `Income` depends on `Age` (which is recorded), not on whether their income is high or low.
 - **Impact & Imputation**: Dropping rows causes bias. Advanced multivariate methods like `KNNImputer` or `IterativeImputer (MICE)` work best here because they reconstruct the missing values using the related observed features (e.g., using `Age` to predict `Income`).
 
+### 3. MNAR: Missing Not At Random
+- **The Concept**: The missingness is directly related to the unobserved value itself. The fact that it is missing carries specific meaning.
+- **Real-World Example**: People with extremely high salaries or people with severe depression choose not to fill out the `Salary` or `Mental Health Score` questions on a survey because of the value itself.
+- **Impact & Imputation**: Imputing with mean or KNN will distort reality because the missing values come from a specific extreme subgroup. The best approach is Missing-Indicator imputation (adding a binary flag `is_missing`) or using Model-Based tree methods (like XGBoost/LightGBM) to learn from the missing state directly.
 
-You don’t need heavy theory, just this:
+### Comparison of Missing Data Mechanisms:
+
+| **Mechanism** | **Cause of Missingness**                              | **Example**                                                       | **Best Handling Strategy**                                        |
+| ------------- | ----------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| **MCAR**      | Completely random noise; independent of all features. | Dropped sample, random equipment glitch.                          | `SimpleImputer` (Mean / Median) or Listwise deletion.             |
+| **MAR**       | Dependent on other known, observed features.          | Men skipping depression score; Older individuals skipping salary. | `KNNImputer`, `IterativeImputer` (MICE).                          |
+| **MNAR**      | Dependent on the actual missing value itself.         | High-earners hiding income; failing students skipping survey.     | Missing-Indicator flag + Model-based handling (XGBoost/LightGBM). |
+
+**You don’t need heavy theory, just this:**
 
 |Type |	Meaning	| Real-world intuition|
 |:--  | :-- | :-- | 
@@ -122,9 +134,9 @@ df.fillna()
 
 ### Sklearn core
 ```python
-from sklearn.impute SimpleImputer
-from skelarn.impute KNNImputer
-from skelarn.impute IterativeImputer
+from sklearn.impute import SimpleImputer
+from sklearn.impute import KNNImputer
+from sklearn.impute import IterativeImputer
 ```
 
 ### Pipeline
@@ -141,3 +153,19 @@ from skelarn.pipeline import Pipeline
 
 To avoid these mistakes, make sure that you understand all the 4 techniques mentioned very clearly.
 
+## 9. Missing-Indicator Features (Preserving Missingness Signal)
+
+Imputing a value (replacing `NaN` with a mean or median) destroys the information that the value was absent. A **Missing Indicator** adds an explicit binary column (`1` = was missing, `0` = was present) alongside the imputed feature.
+
+### Why It Matters:
+- Essential for **MNAR** scenarios where missingness is non-random (e.g., users skipping sensitive survey questions).
+- Gives tree models and linear classifiers direct access to the missingness pattern.
+
+```python
+from sklearn.impute import SimpleImputer
+
+# Imputes missing values AND appends a binary indicator column automatically
+imputer = SimpleImputer(strategy='median', add_indicator=True)
+X_imputed = imputer.fit_transform(X)
+```
+## 10. Handling Missing Data in Time-Series & Sequential Data

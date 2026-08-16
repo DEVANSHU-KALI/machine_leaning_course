@@ -7,51 +7,13 @@ It's a process in which we care only about data, see if data is good to use, is 
 As we know machine learning is all about getting a model trained on data, to make it useful in real world. So to get a good model to work with, we need data to be clean and useful mainly, which we why we learn this concept here initially. We need to have basic understanding about data to work with model later in time.
 
 ### What all concepts do we cover in this!
-1) Missing data handling:
-- Types: MCAR, MAR, MNAR (only practical understanding)
-- When to drop vs impute vs model-based handling
-- Advanced imputation:
-    - KNN imputation
-    - Iterative/MICE
-    - Model-based (LightGBM/XGBoost handling missing)
-- Handling missing in time-series & sequential data
-- Feature engineering with missingness (missing as signal)
-- Real-world pitfalls
-
-2) Data Cleaning (Beyond basics):
-- Handling inconsistent formats (dates, categories, text)
-- Outlier detection (IQR, Z-score, Isolation Forest)
-- De-duplication strategies
-- Data leakage issues (very important in real systems)
-
-3) Feature Engineering (Core Skill)
-- Encoding (target encoding, embeddings—not just one-hot)
-- Scaling (when it matters, when it doesn’t)
-- Feature interactions
-- Domain-driven feature creation
-- Handling high-cardinality features
-4) Data Transformation Pipelines
-- sklearn pipelines & column transformers
-- Reproducible preprocessing (production mindset)
-- Handling train/test mismatch
-- Online vs offline preprocessing
-5) Handling Imbalanced Data
-- SMOTE, ADASYN
-- Class weights vs resampling
-- When NOT to balance data
-6) Text Preprocessing (for NLP → LLM path)
-- Tokenization (classical vs modern)
-- Cleaning vs over-cleaning (important nuance)
-- Embeddings vs traditional preprocessing
-- Preparing data for transformers
-7) Large-Scale / Real-World Data Handling
-- Batch processing vs streaming
-- Memory optimization (very practical)
-- Using tools like pandas vs polars vs spark (when to use what)
-8) Data Validation & Quality Checks
-- Schema validation
-- Drift detection (train vs production)
-- Tools (Great Expectations – brief intro)
-
-We'll cover all these with if there are anything missing. 
+| **Module**                                   | **Core Topics**                                                                                                                                       | **Key Focus**                                                                                                     |
+| -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| **1. Missing Data Handling**                 | MCAR/MAR/MNAR, Drop vs Impute, `SimpleImputer`, `KNNImputer`, `IterativeImputer` (MICE), Native Tree Handling (XGBoost/LightGBM), Missing Indicators. | Avoiding data leakage during imputation; knowing when to use Median vs. MICE vs. Native handling.                           |
+| **2. Data Cleaning & Outliers**              | Duplicates, Inconsistent/Invalid formats, Outlier detection (IQR, Z-Score, Isolation Forest), DateTime parsing.                                       | Robust outlier handling without indiscriminately deleting valid extreme data.                                               |
+| **3. Categorical Encoding**                  | Nominal vs. Ordinal, One-Hot, Ordinal, Target Encoding, Frequency Encoding, High Cardinality handling, Unseen Categories.                             | Preventing target leakage with Out-of-Fold (OOF) Target Encoding; One-Hot vs. Target Encoding tradeoffs.                    |
+| **4. Feature Scaling**                       | `StandardScaler`, `MinMaxScaler`, `RobustScaler`, `MaxAbsScaler`.                                                                                     | Knowing exactly which algorithms require scaling (KNN, SVM, Neural Nets, Ridge/Lasso) and which do not (Tree-based models). |
+| **5. Feature Engineering & Transformations** | Log/Power transforms, Polynomial features, Interaction terms, Binning, Domain-specific signals.                                                       | Normalizing heavily skewed features using Log or Box-Cox transforms to help linear/gradient models.                         |
+| **6. Handling Imbalanced Data**              | Resampling (SMOTE, ADASYN, Undersampling), Algorithm-level (`class_weight='balanced'`), Evaluation Metric shifts (PR-AUC, F1).                        | Knowing when NOT to balance data and avoiding SMOTE data leakage before train-test splits.                                  |
+| **7. Production Preprocessing Pipelines**    | `Pipeline`, `ColumnTransformer`, Reproducibility, Train/Test mismatch prevention.                                                                     | Writing modular, leak-free Scikit-Learn transformers that export cleanly to production.                                     |
 
