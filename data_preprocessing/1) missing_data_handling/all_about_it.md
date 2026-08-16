@@ -169,3 +169,94 @@ imputer = SimpleImputer(strategy='median', add_indicator=True)
 X_imputed = imputer.fit_transform(X)
 ```
 ## 10. Handling Missing Data in Time-Series & Sequential Data
+
+Standard imputation assumes rows are independent. In time-series data, **row order represents time**, meaning past events lead to present events, which lead to future events.
+
+> **Note on Scope:** This section covers the core fundamentals required for general ML workflows. For specialized roles (e.g., Quantitative Finance, IoT/Sensor analytics, or Supply Chain forecasting), more advanced domain-specific techniques like Kalman Filters, spline interpolations, or state-space models may be applied.
+
+### The Fundamental Rule: Avoid Lookahead Leakage
+- **Never use global mean, median, or backward fill (`bfill`)** across a time-series column. 
+- Using future timestamps to fill past gaps causes **Lookahead Data Leakage**—the model trains on information that would never exist at that point in time during real-world inference.
+
+### Core Practical Techniques
+
+**1. Forward Fill (`ffill` / Last Observation Carried Forward)**
+- **Concept:** Propagates the last known valid observation forward until a new data point arrives.
+- **Best For:** Discrete state changes, stock prices, account balances, and step-wise data.
+
+```python
+# Carries the last observed value forward
+df['Stock_Price'] = df['Stock_Price'].ffill()
+```
+
+**2. Linear / Time Interpolation**
+- Concept: Connects the points immediately before and after a missing gap with a straight line, estimating smooth intermediate values.
+- Best For: Continuous physical signals that transition gradually (e.g., temperature, vehicle speed, pressure).
+
+```python 
+# Estimates continuous values based on line slope
+df['Temperature'] = df['Temperature'].interpolate(method='linear')
+```
+
+**3. Rolling Lag Average (Historical Window)**
+- Concept: Replaces a missing value with the average of the past $N$ observed time steps strictly looking backward.
+- Best For: Data with periodic or cyclical patterns (e.g., daily website traffic, hourly power load).
+
+### Quick comparison table
+
+| **Technique**              | **How It Works**                              | **Best For**                              | **Leakage Safe?**                                           |
+| -------------------------- | --------------------------------------------- | ----------------------------------------- | ----------------------------------------------------------- |
+| **`ffill` (Forward Fill)** | Carries previous known value forward          | Flat states, stock prices, exchange rates | **Yes** (uses only past data)                               |
+| **Linear Interpolation**   | Draws a straight line between $t-1$ and $t+1$ | Continuous sensor/weather signals         | **Yes** for historical analysis; use with care in streaming |
+| **Rolling Lag Mean**       | Averages the last $K$ past time steps         | Cyclical signals (daily/weekly peaks)     | **Yes** (when using strictly historical windows)            |
+| **Global Mean / `bfill`**  | Uses full dataset average or future values    | Standard tabular data only                | **No** (Causes temporal data leakage in time-series)        |
+
+> note: this concept may not be that important for the ml side learners, but for other roles related to finance this is very important, for ml siders just knowing this is enough.
+
+## 11. Data Leakage During Imputation (The #1 Interview Trap)
+
+Data Leakage happens when information from your test/validation split leaks into the training step.
+
+❌ The Incorrect Way (Causes Leakage):
+
+```python
+# Calculating mean/median across the entire dataset BEFORE splitting
+imputer = SimpleImputer(strategy='mean')
+X_imputed = imputer.fit_transform(X) 
+X_train, X_test, y_train, y_test = train_test_split(X_imputed, y)
+```
+
+✅ The Correct Way (Strict Split First):
+
+```python
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+imputer = SimpleImputer(strategy='mean')
+# 1. Learn the mean strictly from training data
+X_train_imputed = imputer.fit_transform(X_train)
+
+# 2. Apply the learned training statistics to test data (transform only!)
+X_test_imputed = imputer.transform(X_test)
+```
+
+## 12. Imputation Inside a Proper Scikit-Learn Pipeline
+
+In production ML, we chain imputation and models together to ensure zero leakage and clean cross-validation.
+
+```python 
+from sklearn.pipeline import Pipeline
+from sklearn.impute import SimpleImputer
+from sklearn.ensemble import RandomForestClassifier
+
+# Define the unified Pipeline
+pipeline = Pipeline(steps=[
+    ('imputer', SimpleImputer(strategy='median', add_indicator=True)),
+    ('model', RandomForestClassifier(random_state=42))
+])
+
+# Fit computes statistics strictly on X_train and fits the model
+pipeline.fit(X_train, y_train)
+
+# Predict applies learned training statistics directly to raw input
+predictions = pipeline.predict(X_test)
+```
