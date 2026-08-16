@@ -19,4 +19,61 @@ Data cleaning is the process of detecting and correcting (or removing) corrupt, 
 | **9** | **Practical Implementation & Workflow** | End-to-end Python cleaning script, core Pandas functions, and interview FAQ. |
 
 ---
+## 2. Practical Workflow (How to Approach a Raw Dataset)
+
+```
+Raw Corrupted Data
+       │
+       ▼
+1. Drop True Exact Duplicates
+       │
+       ▼
+2. Correct Structural Types (Strings -> Numeric / Datetime with safe error coercion)
+       │
+       ▼
+3. Standardize Categorical Text (Trim spaces, lower-case, normalize labels)
+       │
+       ▼
+4. Enforce Domain Rules & Bounds (Turn impossible values into NaN or valid bounds)
+       │
+       ▼
+5. Train / Test Split  <--- (Crucial step to prevent Data Leakage)
+       │
+       ▼
+6. Compute Outlier Bounds & Imputation Parameters (On Train only -> Apply to Test)
+       │
+       ▼
+Clean, Leak-Free Data for ML Pipelines
+```
+
+## 3. Core Functions to Master
+
+### Duplicate Management
+```python 
+df.duplicated(subset=['id'], keep='first')
+df.drop_duplicates(subset=['id'], keep='first', inplace=True)
+```
+### Type Conversion & Coercion
+```python 
+pd.to_numeric(df['price'], errors='coerce')
+pd.to_datetime(df['timestamp'], errors='coerce', format='mixed')
+df['category_col'] = df['category_col'].astype('category')
+```
+### String Normalization
+```python 
+df['city'] = df['city'].str.strip().str.lower()
+df['phone'] = df['phone'].str.replace(r'\D+', '', regex=True)
+```
+### Outlier Bounds Calculation (Train Set Only)
+```python 
+# IQR Method
+Q1 = df_train['salary'].quantile(0.25)
+Q3 = df_train['salary'].quantile(0.75)
+IQR = Q3 - Q1
+lower_bound = Q1 - 1.5 * IQR
+upper_bound = Q3 + 1.5 * IQR
+
+# Capping (Winsorization)
+df_train['salary'] = df_train['salary'].clip(lower=lower_bound, upper=upper_bound)
+```
 
