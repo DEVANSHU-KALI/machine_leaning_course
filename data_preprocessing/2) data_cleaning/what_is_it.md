@@ -129,6 +129,36 @@ keep=False
 | `last`  | Keep last occurrence          |
 | `False` | Remove all duplicated records |
 ```
+### 4. Duplicates caused by formatting
+```
+"Rahul"
+"rahul"
+" Rahul "
+"RAHUL"
+``` 
+Here in this case, as a person we can understand all those are same names, but for machine all those are different right, so in this type of cases, you need to get logic to them into another form, lets take we need to get them to lower case without any spaces infront or end"
+```python
+df['name'] = df['name'].str.strip().str.lower()
+```
+This is siple one, but you need to consider different situations, where there might be some numbers or punctuations or something else attached with the word, so getting some good logic is better. 
+
+### 5. Why blindly removing duplicates can be dangerous
+imagine a e-commerce database
+```
+| customer | product | date  |
+| -------- | ------- | ----- |
+| A        | Laptop  | Aug 1 |
+| A        | Laptop  | Aug 1 |
+```
+Is that a duplicate there?, maybe.
+
+But the customer also bought two laptops right, deleting one can destroy some data. 
+
+So ***A duplicate row is not necessarily to be a duplicate event***
+
+Everything comes to understanding the situation. what should you do?, what is that data about?.
+
+> Now with this you might logically understand how duplicate data can cause major issues, especially when sent to train model. 
 
 ## 3. Core Functions to Master
 
