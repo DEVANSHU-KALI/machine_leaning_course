@@ -84,6 +84,51 @@ df.duplicated().sum()
 ```
 This function gives a number, which tells how many duplicates are present in the data. 
 
+### 2. Partially duplicates
+now consider:
+```
+| customer_id | name  | age | city      |
+| ----------- | ----- | --- | --------- |
+| 101         | Rahul |  22 | Hyderabad |
+| 102         | Priya |  24 | Mumbai    |
+| 101         | Rahul |  23 | Hyderabad |
+```
+See here, except the `customer_id` everything is same for `rahul` in another row. This is called partial duplicates. In this cases you need to understand what you need to do, in real world id is considered more important, so if we take that case mainly, here's *how you can only get the number of duplicates in data based on specific column*.
+```python 
+df.duplicated(subset=['customer_id'])
+```
+to remove duplicates based on a single column would be:
+```python 
+df.drop_duplicates(subset=['customer_id'])
+```
+### 3. The dangerous part: which duplicate you need to keep.
+In some cases, you may want to keep the first occurrence of that duplicate. 
+```
+| customer_id | name  | age | updated_at |
+| ----------- | ----- | --: | ---------- |
+| 101         | Rahul |  22 | Jan 1      |
+| 101         | Rahul |  23 | Feb 1      |
+```
+here if we take example of real world perspective, feb is the latest data right, so we can do something like:
+```python 
+df.drop_duplicates(
+       subset=['customer_id'],
+       keep='last
+)
+```
+you can also use:
+```python
+keep='first'
+keep='last'
+keep=False
+```
+```
+| Option  | Meaning                       |
+| ------- | ----------------------------- |
+| `first` | Keep first occurrence         |
+| `last`  | Keep last occurrence          |
+| `False` | Remove all duplicated records |
+```
 
 ## 3. Core Functions to Master
 
