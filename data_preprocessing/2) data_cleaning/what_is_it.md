@@ -46,6 +46,45 @@ Raw Corrupted Data
 Clean, Leak-Free Data for ML Pipelines
 ```
 
+## Different types of duplicates we can face
+### 1. Exact duplicate
+Every column identical
+```
+101 | Rahul | 22 | Hyderabad
+101 | Rahul | 22 | Hyderabad
+```
+This is the simple one.
+```python
+import pandas as pd
+df = pd.DataFrame(data)
+df.duplicated()
+```
+This function will return something like:
+```python
+False # the respected row is doesn't have any duplicate.
+False
+True # this row has a identical duplicate in the data, same to same.
+False
+# I'll also show you this with examples
+```
+And:
+```python
+df.drop_duplicates()
+```
+removes them.
+
+Functions to remember:
+```python 
+df.duplicated()
+df.drop_duplicates()
+```
+and also:
+```python 
+df.duplicated().sum()
+```
+This function gives a number, which tells how many duplicates are present in the data. 
+
+
 ## 3. Core Functions to Master
 
 ### Duplicate Management
