@@ -191,5 +191,3 @@ upper_bound = Q3 + 1.5 * IQR
 df_train['salary'] = df_train['salary'].clip(lower=lower_bound, upper=upper_bound)
 ```
 
-## All the functions I got encountered in the sub concept
-- 
