@@ -97,3 +97,10 @@ While `StandardScaler` is the industry default, specific data distributions and 
  (Bell-curve, general ML)   (Pixels 0-255, probabilities)   (Fraud, telemetry, spikes)
             │                          │                          │
      StandardScaler               MinMaxScaler               RobustScaler
+```
+
+## Some questions usually get asked during interviews: (maybe covered in some other place, but this place might be better to add it)
+
+### 1. Why do distance-based algorithms fail without feature scaling, while tree-based models are completely unaffected?
+- Distance-based models (KNN, K-Means, SVM): Compute Euclidean distance $\sqrt{\sum (x_i - y_i)^2}$. If one feature is Income (range $20,000–200,000$) and another is Age ($18–65$), the squared difference of income yields numbers in the billions, while age yields double digits. The distance calculation gets entirely dominated by income, effectively blinding the model to age.
+- Tree-based models (Decision Trees, Random Forest, XGBoost): Use single-variable monotonic threshold splits (e.g., $\text{Age} > 30$). Transforming a feature via linear scaling ($z = \frac{x - \mu}{\sigma}$) does not alter the relative ordering of values. The exact same data points end up in the left and right child nodes, making scaling mathematically redundant.
