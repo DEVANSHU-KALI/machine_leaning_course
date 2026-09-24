@@ -56,8 +56,8 @@ Most tree libraries provide a built-in `.feature_importances_` property (Mean De
       
     
 2. **Training-Set Overfitting:** Built-in importance is calculated on training data splits. If a feature causes the tree to memorize training noise, it shows up as "highly important" despite destroying test generalization.
-    
-      
+
+In simple terms you can understand it like, as its directly the tree model which is showing which feature is important through the built-in attribute it has, there might be issue right, as the core problem of tree models are sensitive towards noisy data, one unique value can make a new split. so we cant totally relay on the tree's built-in attribute to get the worst feature. so here we introduce permutation way.
     
 
 ### The Solution: Permutation Feature Importance
@@ -85,7 +85,7 @@ Step 4: Importance Score = Baseline - Corrupted Metric (0.92 - 0.78 = 0.14)
     
 - **Catches Leakage:** If a useless random noise column is shuffled, performance drops by $\approx 0.00$, instantly identifying it as irrelevant.
     
-      
+So in simple words what this process does is, after the model is trained on the data, this methods shuffles all the values of one features of the test set and sees how much drop was recorded in the final output, which is mainly the `.importance_mean_drop`, where a values close to 0 has no use being in the data, and a negative values shows that, its importance, and even if this feels confusing, you can change the order to decending while getting the output based on this attribute to get the worst features, which will be in the very below 
     
 
 ## 2. Sub-Notebook 2: SHAP Values & TreeExplainer (`2) shap_values`)
